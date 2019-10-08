@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.GameDetailActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_detail_title"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="28sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/game_picture"
+        android:layout_width="@dimen/game_preview_square"
+        android:layout_height="@dimen/game_preview_square"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/game_picture_desc"
+        android:src="@android:color/background_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <TextView
+        android:id="@+id/game_name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/game_name_label"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/game_picture"
+        app:layout_constraintTop_toTopOf="@+id/game_picture" />
+
+    <TextView
+        android:id="@+id/game_type_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/game_type_label"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/game_name_label"
+        app:layout_constraintTop_toBottomOf="@+id/game_name_label" />
+
+    <TextView
+        android:id="@+id/game_nbplayers_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/game_nbplayers_label"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/game_type_label"
+        app:layout_constraintTop_toBottomOf="@+id/game_type_label" />
+
+    <TextView
+        android:id="@+id/game_year_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/game_year_label"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/game_nbplayers_label"
+        app:layout_constraintTop_toBottomOf="@+id/game_nbplayers_label" />
+
+    <TextView
+        android:id="@+id/game_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/intializing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/game_name_label"
+        app:layout_constraintTop_toTopOf="@+id/game_name_label" />
+
+    <TextView
+        android:id="@+id/game_type"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/intializing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/game_type_label"
+        app:layout_constraintTop_toTopOf="@+id/game_type_label" />
+
+    <TextView
+        android:id="@+id/game_nbplayers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/intializing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/game_nbplayers_label"
+        app:layout_constraintTop_toTopOf="@+id/game_nbplayers_label" />
+
+    <TextView
+        android:id="@+id/game_year"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/intializing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/game_year_label"
+        app:layout_constraintTop_toTopOf="@+id/game_year_label" />
+
+    <TextView
+        android:id="@+id/game_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center_horizontal"
+        android:text="@string/intializing"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/game_picture" />
+
+    <Button
+        android:id="@+id/game_more_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/game_more_button_label"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/game_description" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

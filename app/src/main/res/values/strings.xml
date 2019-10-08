@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Hello Games</string>
+    <string name="game_preview_description">Preview of game</string>
+    <string name="intializing">intializing...</string>
+    <string name="game_detail_title">Game Infos</string>
+    <string name="game_picture_desc">Game picture</string>
+    <string name="game_name_label">Name :</string>
+    <string name="game_type_label">Type :</string>
+    <string name="game_nbplayers_label">Nb players :</string>
+    <string name="game_year_label">Year :</string>
+    <string name="game_more_button_label">Do you want to know more ?</string>
+</resources>

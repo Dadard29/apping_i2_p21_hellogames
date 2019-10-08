@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_square">310dp</dimen>
+    <dimen name="game_preview_square">150dp</dimen>
+    <dimen name="game_preview_list">50dp</dimen>
+</resources>
