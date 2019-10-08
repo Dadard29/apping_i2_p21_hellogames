@@ -1,8 +1,10 @@
 package fr.epita.android.hellogames.Activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,13 +23,29 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ListViewActivity : AppCompatActivity() {
 
 
-    fun initListView(gameListObject: MutableList<GameObject>) {
+    private var baseUrl: String = ""
+
+    private fun goToDetails(gameId: Int) {
+        val explicitIntent = Intent(this, GameDetailActivity::class.java)
+        explicitIntent.putExtra("GAME_ID", gameId)
+        explicitIntent.putExtra("GAME_BASE_URL", this.baseUrl)
+
+        startActivity(explicitIntent)
+    }
+
+    private fun initListView(gameListObject: MutableList<GameObject>) {
+
+        val itemClickListener = View.OnClickListener {
+            val gameId = it.tag as Int
+
+            this.goToDetails(gameId)
+        }
 
         gameList.addItemDecoration(DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL))
 
         gameList.setHasFixedSize(true)
         gameList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        gameList.adapter = GameListAdapter(this, gameListObject)
+        gameList.adapter = GameListAdapter(this, gameListObject, itemClickListener)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,11 +53,11 @@ class ListViewActivity : AppCompatActivity() {
         setContentView(R.layout.activity_list_view)
 
         val originIntent = intent
-        val baseUrl = originIntent.getStringExtra("GAME_BASE_URL")
+        this.baseUrl = originIntent.getStringExtra("GAME_BASE_URL")
 
         val jsonConverter = GsonConverterFactory.create(GsonBuilder().create())
         val retrofit = Retrofit.Builder()
-            .baseUrl(baseUrl)
+            .baseUrl(this.baseUrl)
             .addConverterFactory(jsonConverter)
             .build()
 
@@ -63,7 +81,6 @@ class ListViewActivity : AppCompatActivity() {
                         initListView(gameListObject)
 
                         Log.d("HTTP_SUCCESS", "retrieve game list")
-                        Toast.makeText(applicationContext, "game list retrieved", Toast.LENGTH_LONG).show()
                     } else {
                         Log.d("HTTP_ERROR", "empty response")
                     }

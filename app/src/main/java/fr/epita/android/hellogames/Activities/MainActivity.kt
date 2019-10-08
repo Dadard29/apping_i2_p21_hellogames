@@ -122,7 +122,6 @@ class MainActivity : AppCompatActivity() {
 
                         initialized = true
                         Log.d("HTTP_SUCCESS", "retrieve game list")
-                        Toast.makeText(applicationContext, "game list retrieved", Toast.LENGTH_LONG).show()
 
                         initImageGamesPreview()
                     } else {

@@ -1,6 +1,7 @@
 package fr.epita.android.hellogames.Adapters
 
 import android.content.Context
+import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,11 @@ import com.bumptech.glide.Glide
 import fr.epita.android.hellogames.Models.GameObject
 import fr.epita.android.hellogames.R
 
-class GameListAdapter(private val context : Context, private val data: MutableList<GameObject>) : RecyclerView.Adapter<GameListAdapter.ViewHolder>() {
+class GameListAdapter(
+    private val context : Context,
+    private val data: MutableList<GameObject>,
+    private val itemOnClickListener: View.OnClickListener
+) : RecyclerView.Adapter<GameListAdapter.ViewHolder>() {
 
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         val nameView: TextView = itemView.findViewById(R.id.gameObjectName)
@@ -23,6 +28,8 @@ class GameListAdapter(private val context : Context, private val data: MutableLi
         val rowView = LayoutInflater
             .from(context)
             .inflate(R.layout.activity_list_view_row, parent, false)
+
+        rowView.setOnClickListener(itemOnClickListener)
 
         return ViewHolder(rowView)
     }
@@ -40,5 +47,7 @@ class GameListAdapter(private val context : Context, private val data: MutableLi
             .load(currentItem.picture)
             .error(getDrawable(context, R.drawable.error_loading))
             .into(holder.pictureView)
+
+        holder.itemView.tag = currentItem.id
     }
 }
